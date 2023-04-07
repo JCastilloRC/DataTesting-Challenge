@@ -1,5 +1,6 @@
 package entities;
 
+import helper.Helper;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,6 +9,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import tables.EmployeesTable;
 
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity(name="employee")
@@ -111,5 +115,20 @@ public class Employee extends BaseEntity{
                 "\tBirth Date: "+birthDate+
                 "\tCompany ID: "+idCompany+
                 "\tInstitution ID: "+idInstitution);
+    }
+    public static Employee generateRandomEmployee() throws IOException, ParseException {
+        Employee anEmployee = new Employee();
+        anEmployee.setId(Integer.parseInt(Helper.getRandomNumber(100, 200)));
+        anEmployee.setFirstName(Helper.getRandomName());
+        anEmployee.setLastName(Helper.getRandomName());
+        anEmployee.setEmail(Helper.getRandomEmail());
+        anEmployee.setPhoneNumber(Helper.getRandomNumber(1000000,9999999 ));
+        anEmployee.setBirthDate(new SimpleDateFormat( "yyyy-MM-dd" ).parse( Helper.getRandomDate()));
+        anEmployee.setSalary(Integer.parseInt(Helper.getRandomNumber(1000000, 10000000)));
+        anEmployee.setAddress(Helper.getRandomAddress());
+        anEmployee.setIdCompany(Integer.parseInt(Helper.getRandomNumber(1, 5)));
+        anEmployee.setIdInstitution(Integer.parseInt(Helper.getRandomNumber(1, 3)));
+        anEmployee.printEmployeeInfo();
+        return anEmployee;
     }
 }

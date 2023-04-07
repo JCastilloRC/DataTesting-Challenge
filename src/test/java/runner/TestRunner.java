@@ -25,6 +25,7 @@ public class TestRunner extends Hooks{
     public void getAllRecords(){
        List<Employee> employees = new EmployeesTable(manager).getAllEmployees();
        for(Employee e: employees){
+           e.printEmployeeInfo();
            assertThat("Phone number of employee with ID " + e.getId() + " is not a number",
                         e.getPhoneNumber(),
                         matchesPattern("^\\d+$")
@@ -50,6 +51,32 @@ public class TestRunner extends Hooks{
         assertThat("Entry was not made successfully",
                 table.getEmployeeById(id),
                 notNullValue()
+        );
+    }
+    @Test(groups = "requiresRestoreEmail")
+    public void updateEmployeeEmail(ITestContext ctx) throws IOException, ParseException {
+        EmployeesTable table = new EmployeesTable(manager);
+        ctx.setAttribute("table", table);
+        Employee employee = table.getRandomEmployee();
+        ctx.setAttribute("employee", employee);
+        ctx.setAttribute("originalEmail", employee.getEmail());
+        String newEmail = Helper.getRandomEmail();
+        table.updateEmail(employee, newEmail);
+        assertThat("The email was not updated correctly",
+                table.getEmployeeById(employee.getId()).getEmail(),
+                equalTo(newEmail)
+        );
+    }
+    @Test(groups = "requiresRestoreEntry")
+    public void deleteEmployee(ITestContext ctx){
+        EmployeesTable table = new EmployeesTable(manager);
+        ctx.setAttribute("table", table);
+        Employee employee = table.getRandomEmployee();
+        ctx.setAttribute("employee", employee);
+        table.safeDeleteEmployeeById(employee.getId());
+        assertThat("The entry was not deleted",
+                table.getEmployeeById(employee.getId()),
+                nullValue()
         );
     }
 }

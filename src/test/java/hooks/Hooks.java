@@ -1,6 +1,7 @@
 package hooks;
 
 
+import entities.Employee;
 import jpamanager.JPAManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,13 +19,38 @@ public class Hooks{
     public void setUp() throws IOException {
         manager = new JPAManager();
     }
-    @AfterMethod(onlyForGroups = {"requiresDeleteEntry"}, enabled = false)
-    public void deleteMovieFromWatchList(ITestContext ctx){
+    @AfterMethod(onlyForGroups = {"requiresDeleteEntry"})
+    public void deleteLastEmployee(ITestContext ctx){
         try {
             LOGGER.info("Deleting last entry...");
             EmployeesTable table = (EmployeesTable)ctx.getAttribute("table");
             int id = (int)ctx.getAttribute("id");
             table.safeDeleteEmployeeById(id);
+        }
+        catch (Exception e){
+            LOGGER.error("Something went wrong");
+        }
+    }
+    @AfterMethod(onlyForGroups = {"requiresRestoreEmail"})
+    public void restoreEmployeeEmail(ITestContext ctx){
+        try {
+            LOGGER.info("Restoring last email...");
+            EmployeesTable table = (EmployeesTable)ctx.getAttribute("table");
+            Employee employee = (Employee) ctx.getAttribute("employee");
+            String originalEmail = (String) ctx.getAttribute("originalEmail");
+            table.updateEmail(employee, originalEmail);
+        }
+        catch (Exception e){
+            LOGGER.error("Something went wrong");
+        }
+    }
+    @AfterMethod(onlyForGroups = {"requiresRestoreEntry"})
+    public void restoreLastEmployee(ITestContext ctx){
+        try {
+            LOGGER.info("Restoring last entry...");
+            EmployeesTable table = (EmployeesTable)ctx.getAttribute("table");
+            Employee employee = (Employee) ctx.getAttribute("employee");
+            table.addEmployee(employee);
         }
         catch (Exception e){
             LOGGER.error("Something went wrong");
