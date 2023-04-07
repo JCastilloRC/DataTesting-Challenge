@@ -1,0 +1,6 @@
+<environment>
+    <parameter>
+        <key>MySQL Server</key>
+        <value>Version 8.0.32</value>
+    </parameter>
+</environment>

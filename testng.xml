@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="DataTesting Suite" >
+    <test name="Personas Database Test">
+        <classes>
+            <class name="runner.TestRunner" />
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="helper.TestNGListener" />
+    </listeners>
+</suite>

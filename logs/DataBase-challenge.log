@@ -1,0 +1,41 @@
+19:09:02.684 [main] INFO  org.hibernate.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: persistence]
+19:09:02.736 [main] INFO  org.hibernate.Version: HHH000412: Hibernate ORM core version 6.2.0.Final
+19:09:02.739 [main] INFO  org.hibernate.cfg.Environment: HHH000406: Using bytecode reflection optimizer
+19:09:02.949 [main] WARN  org.hibernate.orm.connections.pooling: HHH10001002: Using built-in connection pool (not intended for production use)
+19:09:02.953 [main] INFO  org.hibernate.orm.connections.pooling: HHH10001005: Loaded JDBC driver class: com.mysql.jdbc.Driver
+19:09:02.953 [main] INFO  org.hibernate.orm.connections.pooling: HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/personas]
+19:09:02.954 [main] INFO  org.hibernate.orm.connections.pooling: HHH10001001: Connection properties: {password=****, user=root}
+19:09:02.954 [main] INFO  org.hibernate.orm.connections.pooling: HHH10001003: Autocommit mode: false
+19:09:02.957 [main] INFO  org.hibernate.orm.connections.pooling: HHH10001115: Connection pool size: 20 (min=1)
+19:09:03.369 [main] INFO  SQL dialect: HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+19:09:03.683 [main] INFO  org.hibernate.bytecode.internal.BytecodeProviderInitiator: HHH000021: Bytecode provider name : bytebuddy
+19:09:04.416 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+19:09:04.450 [main] INFO  org.hibernate.orm.connections.access: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@29f3185c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+19:09:04.590 [main] INFO  TestRunner: - - - - - - - > START TEST CASE: getAllRecords
+19:09:04.618 [main] INFO  tables.EmployeesTable: Getting all the employees from table...
+19:09:04.845 [main] INFO  entities.Employee: ID: 64	First Name: Paola	Last Name: Ramirez	Email: paos@gmail.com	Phone number: 6324584	Address: 37 George st.	Salary: 3050.0	Birth Date: 1990-05-07 00:00:00.0	Company ID: 1	Institution ID: 1
+19:09:04.845 [main] INFO  entities.Employee: ID: 74	First Name: Goku	Last Name: Kameja	Email: gokuz@gmail.com	Phone number: 523657563	Address: 96 Toohey rd	Salary: 2900.0	Birth Date: 1985-05-23 00:00:00.0	Company ID: 5	Institution ID: 3
+19:09:04.845 [main] INFO  entities.Employee: ID: 83	First Name: Vegueta	Last Name: Vegito	Email: vegueta@gmail.com	Phone number: 6952335	Address: 15 Adelade st	Salary: 3800.0	Birth Date: 1982-04-16 00:00:00.0	Company ID: 5	Institution ID: 2
+19:09:04.845 [main] INFO  entities.Employee: ID: 92	First Name: Krilin	Last Name: Perez	Email: krilip@gmail.com	Phone number: 45623688	Address: 87 Woolbor st	Salary: 3500.0	Birth Date: 1984-09-17 00:00:00.0	Company ID: 3	Institution ID: 1
+19:09:04.845 [main] INFO  entities.Employee: ID: 95	First Name: Natalia	Last Name: Gonzalez	Email: natis@gmail.com	Phone number: 78962426	Address: 42 George av.	Salary: 4100.0	Birth Date: 1979-02-06 00:00:00.0	Company ID: 4	Institution ID: 3
+19:09:04.846 [main] INFO  entities.Employee: ID: 120	First Name: Jake	Last Name: Jordan	Email: Danny_Cassidy1670@voylg.org	Phone number: 2430214	Address: Borgo Fulvio 75, Appartamento 35	Salary: 1257219.0	Birth Date: 1985-03-04 00:00:00.0	Company ID: 3	Institution ID: 1
+19:09:04.846 [main] INFO  entities.Employee: ID: 125	First Name: Royce	Last Name: Hailie	Email: Aurelia_Potts3307@nb44i.meet	Phone number: 5199496	Address: N56 65, Casa 1	Salary: 8025362.0	Birth Date: 1989-04-26 00:00:00.0	Company ID: 4	Institution ID: 2
+19:09:04.846 [main] INFO  entities.Employee: ID: 137	First Name: Jonathon	Last Name: Aidan	Email: Melanie_Allen2083@ohqqh.shop	Phone number: 9080550	Address: Ladeira Sebastião Branco 9, Lote 35	Salary: 3758687.0	Birth Date: 1994-02-05 00:00:00.0	Company ID: 1	Institution ID: 2
+19:09:04.846 [main] INFO  entities.Employee: ID: 140	First Name: Landen	Last Name: Dulce	Email: Cedrick_Morrow5843@cke3u.mobi	Phone number: 6670131	Address: N89 7, Lote 10	Salary: 8217196.0	Birth Date: 1996-06-15 00:00:00.0	Company ID: 3	Institution ID: 1
+19:09:04.846 [main] INFO  entities.Employee: ID: 167	First Name: Franco	Last Name: Leanne	Email: Brad_Russel3011@cdpfn.tech	Phone number: 1163807	Address: Strada Carminati 836, Piano 0	Salary: 5458609.0	Birth Date: 1961-09-11 00:00:00.0	Company ID: 4	Institution ID: 2
+19:09:04.850 [main] INFO  TestRunner: Test successfully executed.
+19:09:04.850 [main] INFO  TestRunner: - - - - - - - > TEST CASE END 
+
+19:09:04.894 [main] INFO  TestRunner: - - - - - - - > START TEST CASE: getEmployeeByLastName
+19:09:04.983 [main] INFO  TestRunner: Searching for employee with last name: Vegito
+19:09:05.034 [main] INFO  TestRunner: Test successfully executed.
+19:09:05.034 [main] INFO  TestRunner: - - - - - - - > TEST CASE END 
+
+19:09:05.038 [main] INFO  TestRunner: - - - - - - - > START TEST CASE: insertNewEmployee
+19:09:05.041 [main] INFO  tables.EmployeesTable: Adding random employee...
+19:09:05.120 [main] INFO  jpamanager.JPAManager: Entry successfully made
+19:09:05.134 [main] INFO  entities.Employee: ID: 190	First Name: Lamar	Last Name: Vincent	Email: Christine_Tobin6283@jcf8v.works	Phone number: 4216162	Address: Ferrocarril Débora Saldaña, 6, Esc. 292	Salary: 7657981.0	Birth Date: Sat Oct 29 00:00:00 COT 1960	Company ID: 4	Institution ID: 2
+19:09:05.139 [main] INFO  TestRunner: Test successfully executed.
+19:09:05.139 [main] INFO  TestRunner: - - - - - - - > TEST CASE END 
+
+19:09:05.145 [main] INFO  TestRunner: Test run: 3, Passed: 3, Failures: 0, Skipped: 0
