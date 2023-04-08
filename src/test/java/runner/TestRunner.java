@@ -4,6 +4,7 @@ import entities.Employee;
 import helper.Helper;
 import helper.TestNGListener;
 import hooks.Hooks;
+import jdk.jfr.Description;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.ITestContext;
@@ -13,7 +14,6 @@ import tables.EmployeesTable;
 
 import java.io.IOException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -22,6 +22,7 @@ import static org.hamcrest.Matchers.*;
 public class TestRunner extends Hooks{
     private static final Logger LOGGER = LogManager.getLogger("TestRunner");
     @Test
+    @Description("Verifying that all registered employees phone numbers are numbers and hava valid emails")
     public void getAllRecords(){
        List<Employee> employees = new EmployeesTable(manager).getAllEmployees();
        for(Employee e: employees){
@@ -30,9 +31,14 @@ public class TestRunner extends Hooks{
                         e.getPhoneNumber(),
                         matchesPattern("^\\d+$")
            );
+           assertThat("Employee with ID " + e.getId() + " has an invalid email",
+                   e.getEmail(),
+                   matchesPattern("^[\\w-.]+@([\\w-]+\\.)+[\\w-]{2,4}$")
+           );
        }
     }
     @Test
+    @Description("Validating that last names from database match the actual last names of employees")
     public void getEmployeeByLastName() throws IOException {
         Employee validEmployee = Helper.getRandomValidEmployee();
         LOGGER.info("Searching for employee with last name: " + validEmployee.getLastName());
@@ -43,6 +49,7 @@ public class TestRunner extends Hooks{
         );
     }
     @Test(groups = "requiresDeleteEntry")
+    @Description("Verifying that when you add a new employee, the database is updated")
     public void insertNewEmployee(ITestContext ctx) throws IOException, ParseException {
         EmployeesTable table = new EmployeesTable(manager);
         ctx.setAttribute("table", table);
@@ -53,13 +60,15 @@ public class TestRunner extends Hooks{
                 notNullValue()
         );
     }
-    @Test(groups = "requiresRestoreEmail")
-    public void updateEmployeeEmail(ITestContext ctx) throws IOException, ParseException {
+    @Test(groups = {"requiresRestoreEmail", "requiresRestorePhoneNumber"})
+    @Description("Verifying that when you modify an existing employee, the database is updated")
+    public void updateEmployeeEmail(ITestContext ctx) throws IOException{
         EmployeesTable table = new EmployeesTable(manager);
         ctx.setAttribute("table", table);
         Employee employee = table.getRandomEmployee();
         ctx.setAttribute("employee", employee);
         ctx.setAttribute("originalEmail", employee.getEmail());
+        ctx.setAttribute("originalPhoneNumber", employee.getPhoneNumber());
         String newEmail = Helper.getRandomEmail();
         table.updateEmail(employee, newEmail);
         assertThat("The email was not updated correctly",
@@ -68,12 +77,13 @@ public class TestRunner extends Hooks{
         );
     }
     @Test(groups = "requiresRestoreEntry")
+    @Description("Verifying that when you delete an employee, the database is updated")
     public void deleteEmployee(ITestContext ctx){
         EmployeesTable table = new EmployeesTable(manager);
         ctx.setAttribute("table", table);
         Employee employee = table.getRandomEmployee();
         ctx.setAttribute("employee", employee);
-        table.safeDeleteEmployeeById(employee.getId());
+        table.deleteEmployeeById(employee.getId());
         assertThat("The entry was not deleted",
                 table.getEmployeeById(employee.getId()),
                 nullValue()

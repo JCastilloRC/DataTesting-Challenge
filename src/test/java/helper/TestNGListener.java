@@ -7,6 +7,7 @@ public class TestNGListener implements ITestListener, ISuiteListener, IInvokedMe
 
     @Override
     public void onTestStart(ITestResult iTestResult) {
+        LOGGER.info("\n");
         LOGGER.info("- - - - - - - > START TEST CASE: " + iTestResult.getName());
     }
     @Override
@@ -21,6 +22,7 @@ public class TestNGListener implements ITestListener, ISuiteListener, IInvokedMe
     }
     @Override
     public void onFinish(ITestContext iTestContext) {
+        LOGGER.info("\n");
         LOGGER.info("Test run: " + iTestContext.getAllTestMethods().length +
                     ", Passed: " + iTestContext.getPassedTests().size() +
                     ", Failures: " + iTestContext.getFailedTests().size() +

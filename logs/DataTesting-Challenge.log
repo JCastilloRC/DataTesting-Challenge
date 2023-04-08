@@ -1,66 +1,81 @@
-01:28:50.912 [main] INFO  org.hibernate.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: persistence]
-01:28:50.966 [main] INFO  org.hibernate.Version: HHH000412: Hibernate ORM core version 6.2.0.Final
-01:28:50.970 [main] INFO  org.hibernate.cfg.Environment: HHH000406: Using bytecode reflection optimizer
-01:28:51.207 [main] WARN  org.hibernate.orm.connections.pooling: HHH10001002: Using built-in connection pool (not intended for production use)
-01:28:51.212 [main] INFO  org.hibernate.orm.connections.pooling: HHH10001005: Loaded JDBC driver class: com.mysql.jdbc.Driver
-01:28:51.219 [main] INFO  org.hibernate.orm.connections.pooling: HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/personas]
-01:28:51.219 [main] INFO  org.hibernate.orm.connections.pooling: HHH10001001: Connection properties: {password=****, user=root}
-01:28:51.219 [main] INFO  org.hibernate.orm.connections.pooling: HHH10001003: Autocommit mode: false
-01:28:51.224 [main] INFO  org.hibernate.orm.connections.pooling: HHH10001115: Connection pool size: 20 (min=1)
-01:28:51.622 [main] INFO  SQL dialect: HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
-01:28:52.075 [main] INFO  org.hibernate.bytecode.internal.BytecodeProviderInitiator: HHH000021: Bytecode provider name : bytebuddy
-01:28:52.879 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-01:28:52.906 [main] INFO  org.hibernate.orm.connections.access: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@74bbc273] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-01:28:53.096 [main] INFO  TestRunner: - - - - - - - > START TEST CASE: deleteEmployee
-01:28:53.124 [main] INFO  tables.EmployeesTable: Getting all the employees from table...
-01:28:53.397 [main] INFO  tables.EmployeesTable: Selecting a random employee...
-01:28:53.398 [main] INFO  tables.EmployeesTable: Deleting employee with id: 64
-01:28:53.447 [main] INFO  jpamanager.JPAManager: Entry successfully deleted
-01:28:53.447 [main] INFO  tables.EmployeesTable: Returning employee with id: 64
-01:28:53.462 [main] INFO  TestRunner: Test successfully executed.
-01:28:53.463 [main] INFO  TestRunner: - - - - - - - > TEST CASE END 
+17:01:48.832 [main] INFO  org.hibernate.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: persistence]
+17:01:48.897 [main] INFO  org.hibernate.Version: HHH000412: Hibernate ORM core version 6.2.0.Final
+17:01:48.900 [main] INFO  org.hibernate.cfg.Environment: HHH000406: Using bytecode reflection optimizer
+17:01:49.135 [main] WARN  org.hibernate.orm.connections.pooling: HHH10001002: Using built-in connection pool (not intended for production use)
+17:01:49.140 [main] INFO  org.hibernate.orm.connections.pooling: HHH10001005: Loaded JDBC driver class: com.mysql.jdbc.Driver
+17:01:49.141 [main] INFO  org.hibernate.orm.connections.pooling: HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/personas]
+17:01:49.141 [main] INFO  org.hibernate.orm.connections.pooling: HHH10001001: Connection properties: {password=****, user=root}
+17:01:49.141 [main] INFO  org.hibernate.orm.connections.pooling: HHH10001003: Autocommit mode: false
+17:01:49.144 [main] INFO  org.hibernate.orm.connections.pooling: HHH10001115: Connection pool size: 20 (min=1)
+17:01:49.561 [main] INFO  SQL dialect: HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17:01:49.898 [main] INFO  org.hibernate.bytecode.internal.BytecodeProviderInitiator: HHH000021: Bytecode provider name : bytebuddy
+17:01:50.611 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+17:01:50.643 [main] INFO  org.hibernate.orm.connections.access: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@12f8682a] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+17:01:50.802 [main] INFO  TestRunner: 
 
-01:28:53.548 [main] INFO  Hooks: Restoring last entry...
-01:28:53.549 [main] INFO  tables.EmployeesTable: Adding employee...
-01:28:53.571 [main] INFO  entities.Employee: ID: 64	First Name: Paola	Last Name: Ramirez	Email: paos@gmail.com	Phone number: 6324584	Address: 37 George st.	Salary: 3050.0	Birth Date: 1990-05-07 00:00:00.0	Company ID: 1	Institution ID: 1
-01:28:53.608 [main] INFO  jpamanager.JPAManager: Entry successfully made
-01:28:53.623 [main] INFO  TestRunner: - - - - - - - > START TEST CASE: getAllRecords
-01:28:53.626 [main] INFO  tables.EmployeesTable: Getting all the employees from table...
-01:28:53.635 [main] INFO  entities.Employee: ID: 64	First Name: Paola	Last Name: Ramirez	Email: paos@gmail.com	Phone number: 6324584	Address: 37 George st.	Salary: 3050.0	Birth Date: 1990-05-07 00:00:00.0	Company ID: 1	Institution ID: 1
-01:28:53.637 [main] INFO  entities.Employee: ID: 74	First Name: Goku	Last Name: Kameja	Email: gokuz@gmail.com	Phone number: 523657563	Address: 96 Toohey rd	Salary: 2900.0	Birth Date: 1985-05-23 00:00:00.0	Company ID: 5	Institution ID: 3
-01:28:53.638 [main] INFO  entities.Employee: ID: 83	First Name: Vegueta	Last Name: Vegito	Email: vegueta@gmail.com	Phone number: 00NotANumber11	Address: 15 Adelade st	Salary: 3800.0	Birth Date: 1982-04-16 00:00:00.0	Company ID: 5	Institution ID: 2
-01:28:53.640 [main] ERROR TestRunner: Test Failed with message: Phone number of employee with ID 83 is not a number
+17:01:50.802 [main] INFO  TestRunner: - - - - - - - > START TEST CASE: deleteEmployee
+17:01:50.836 [main] INFO  tables.EmployeesTable: Getting all the employees from table...
+17:01:51.096 [main] INFO  tables.EmployeesTable: Selecting a random employee...
+17:01:51.096 [main] INFO  tables.EmployeesTable: Deleting employee with id: 64
+17:01:51.144 [main] INFO  jpamanager.JPAManager: Entry successfully deleted
+17:01:51.145 [main] INFO  tables.EmployeesTable: Returning employee with id: 64
+17:01:51.154 [main] INFO  TestRunner: Test successfully executed.
+17:01:51.154 [main] INFO  TestRunner: - - - - - - - > TEST CASE END 
+
+17:01:51.208 [main] INFO  Hooks: Restoring last entry...
+17:01:51.208 [main] INFO  tables.EmployeesTable: Adding employee...
+17:01:51.221 [main] INFO  entities.Employee: ID: 64	First Name: Paola	Last Name: Ramirez	Email: paos@gmail.com	Phone number: 6324584	Address: 37 George st.	Salary: 3050.0	Birth Date: 1990-05-07 00:00:00.0	Company ID: 1	Institution ID: 1
+17:01:51.243 [main] INFO  jpamanager.JPAManager: Entry successfully made
+17:01:51.251 [main] INFO  TestRunner: 
+
+17:01:51.251 [main] INFO  TestRunner: - - - - - - - > START TEST CASE: getAllRecords
+17:01:51.253 [main] INFO  tables.EmployeesTable: Getting all the employees from table...
+17:01:51.259 [main] INFO  entities.Employee: ID: 64	First Name: Paola	Last Name: Ramirez	Email: paos@gmail.com	Phone number: 6324584	Address: 37 George st.	Salary: 3050.0	Birth Date: 1990-05-07 00:00:00.0	Company ID: 1	Institution ID: 1
+17:01:51.261 [main] INFO  entities.Employee: ID: 74	First Name: Goku	Last Name: Kameja	Email: gokuz@gmail.com	Phone number: 523657563	Address: 96 Toohey rd	Salary: 2900.0	Birth Date: 1985-05-23 00:00:00.0	Company ID: 5	Institution ID: 3
+17:01:51.262 [main] INFO  entities.Employee: ID: 83	First Name: Vegueta	Last Name: Vegito	Email: vegueta@gmail.com	Phone number: 00NotANumber11	Address: 15 Adelade st	Salary: 3800.0	Birth Date: 1982-04-16 00:00:00.0	Company ID: 5	Institution ID: 2
+17:01:51.263 [main] ERROR TestRunner: Test Failed with message: Phone number of employee with ID 83 is not a number
 Expected: a string matching the pattern '^\d+$'
      but: was "00NotANumber11"
-01:28:53.640 [main] INFO  TestRunner: - - - - - - - > TEST CASE END 
+17:01:51.263 [main] INFO  TestRunner: - - - - - - - > TEST CASE END 
 
-01:28:53.652 [main] INFO  TestRunner: - - - - - - - > START TEST CASE: getEmployeeByLastName
-01:28:53.779 [main] INFO  TestRunner: Searching for employee with last name: Vegito
-01:28:53.780 [main] INFO  tables.EmployeesTable: Returning employee with last name: Vegito
-01:28:53.843 [main] INFO  TestRunner: Test successfully executed.
-01:28:53.843 [main] INFO  TestRunner: - - - - - - - > TEST CASE END 
+17:01:51.268 [main] INFO  TestRunner: 
 
-01:28:53.846 [main] INFO  TestRunner: - - - - - - - > START TEST CASE: insertNewEmployee
-01:28:53.848 [main] INFO  tables.EmployeesTable: Adding random employee...
-01:28:53.900 [main] INFO  entities.Employee: ID: 198	First Name: Aliyah	Last Name: Sheyla	Email: Jocelyn_Johnson5162@lyvnc.design	Phone number: 6149271	Address: Strada Carminati 836, Piano 0	Salary: 1778443.0	Birth Date: Sat Mar 11 00:00:00 COT 1967	Company ID: 3	Institution ID: 2
-01:28:53.916 [main] INFO  jpamanager.JPAManager: Entry successfully made
-01:28:53.916 [main] INFO  tables.EmployeesTable: Returning employee with id: 198
-01:28:53.917 [main] INFO  TestRunner: Test successfully executed.
-01:28:53.917 [main] INFO  TestRunner: - - - - - - - > TEST CASE END 
+17:01:51.268 [main] INFO  TestRunner: - - - - - - - > START TEST CASE: getEmployeeByLastName
+17:01:51.368 [main] INFO  TestRunner: Searching for employee with last name: Kameja
+17:01:51.368 [main] INFO  tables.EmployeesTable: Returning employee with last name: Kameja
+17:01:51.420 [main] INFO  TestRunner: Test successfully executed.
+17:01:51.420 [main] INFO  TestRunner: - - - - - - - > TEST CASE END 
 
-01:28:53.919 [main] INFO  Hooks: Deleting last entry...
-01:28:53.920 [main] INFO  tables.EmployeesTable: Deleting employee with id: 198
-01:28:53.927 [main] INFO  jpamanager.JPAManager: Entry successfully deleted
-01:28:53.929 [main] INFO  TestRunner: - - - - - - - > START TEST CASE: updateEmployeeEmail
-01:28:53.932 [main] INFO  tables.EmployeesTable: Getting all the employees from table...
-01:28:53.938 [main] INFO  tables.EmployeesTable: Selecting a random employee...
-01:28:53.943 [main] INFO  tables.EmployeesTable: Updating email from employee with id 92 to: Maya_Norris9559@bcfhs.zone
-01:28:53.962 [main] INFO  jpamanager.JPAManager: Entry successfully updated
-01:28:53.962 [main] INFO  tables.EmployeesTable: Returning employee with id: 92
-01:28:53.962 [main] INFO  TestRunner: Test successfully executed.
-01:28:53.963 [main] INFO  TestRunner: - - - - - - - > TEST CASE END 
+17:01:51.423 [main] INFO  TestRunner: 
 
-01:28:53.966 [main] INFO  Hooks: Restoring last email...
-01:28:53.966 [main] INFO  tables.EmployeesTable: Updating email from employee with id 92 to: krilip@gmail.com
-01:28:53.975 [main] INFO  jpamanager.JPAManager: Entry successfully updated
-01:28:53.982 [main] INFO  TestRunner: Test run: 5, Passed: 4, Failures: 1, Skipped: 0
+17:01:51.423 [main] INFO  TestRunner: - - - - - - - > START TEST CASE: insertNewEmployee
+17:01:51.426 [main] INFO  tables.EmployeesTable: Adding random employee...
+17:01:51.469 [main] INFO  entities.Employee: ID: 140	First Name: Rashad	Last Name: Ginger	Email: Ema_Stone3628@crzq7.design	Phone number: 7186905	Address: Pasaje María Teresa, 4, Puerta 402	Salary: 5202744.0	Birth Date: Tue May 21 00:00:00 COT 1963	Company ID: 4	Institution ID: 1
+17:01:51.480 [main] INFO  jpamanager.JPAManager: Entry successfully made
+17:01:51.481 [main] INFO  tables.EmployeesTable: Returning employee with id: 140
+17:01:51.482 [main] INFO  TestRunner: Test successfully executed.
+17:01:51.482 [main] INFO  TestRunner: - - - - - - - > TEST CASE END 
+
+17:01:51.485 [main] INFO  Hooks: Deleting last entry...
+17:01:51.486 [main] INFO  tables.EmployeesTable: Deleting employee with id: 140
+17:01:51.494 [main] INFO  jpamanager.JPAManager: Entry successfully deleted
+17:01:51.496 [main] INFO  TestRunner: 
+
+17:01:51.497 [main] INFO  TestRunner: - - - - - - - > START TEST CASE: updateEmployeeEmail
+17:01:51.499 [main] INFO  tables.EmployeesTable: Getting all the employees from table...
+17:01:51.504 [main] INFO  tables.EmployeesTable: Selecting a random employee...
+17:01:51.508 [main] INFO  tables.EmployeesTable: Updating email from employee with id 95 to: Scarlett_Walton8218@bqkv0.mobi
+17:01:51.527 [main] INFO  jpamanager.JPAManager: Entry successfully updated
+17:01:51.528 [main] INFO  tables.EmployeesTable: Returning employee with id: 95
+17:01:51.528 [main] INFO  TestRunner: Test successfully executed.
+17:01:51.528 [main] INFO  TestRunner: - - - - - - - > TEST CASE END 
+
+17:01:51.532 [main] INFO  Hooks: Restoring last email...
+17:01:51.533 [main] INFO  tables.EmployeesTable: Updating email from employee with id 95 to: natis@gmail.com
+17:01:51.542 [main] INFO  jpamanager.JPAManager: Entry successfully updated
+17:01:51.544 [main] INFO  Hooks: Restoring last phone number...
+17:01:51.545 [main] INFO  tables.EmployeesTable: Updating phone number from employee with id 95 to: 78962426
+17:01:51.547 [main] INFO  jpamanager.JPAManager: Entry successfully updated
+17:01:51.549 [main] INFO  TestRunner: 
+
+17:01:51.555 [main] INFO  TestRunner: Test run: 5, Passed: 4, Failures: 1, Skipped: 0

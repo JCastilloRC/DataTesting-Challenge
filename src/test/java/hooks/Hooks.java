@@ -25,7 +25,7 @@ public class Hooks{
             LOGGER.info("Deleting last entry...");
             EmployeesTable table = (EmployeesTable)ctx.getAttribute("table");
             int id = (int)ctx.getAttribute("id");
-            table.safeDeleteEmployeeById(id);
+            table.deleteEmployeeById(id);
         }
         catch (Exception e){
             LOGGER.error("Something went wrong");
@@ -39,6 +39,19 @@ public class Hooks{
             Employee employee = (Employee) ctx.getAttribute("employee");
             String originalEmail = (String) ctx.getAttribute("originalEmail");
             table.updateEmail(employee, originalEmail);
+        }
+        catch (Exception e){
+            LOGGER.error("Something went wrong");
+        }
+    }
+    @AfterMethod(onlyForGroups = {"requiresRestorePhoneNumber"})
+    public void restoreEmployeePhoneNumber(ITestContext ctx){
+        try {
+            LOGGER.info("Restoring last phone number...");
+            EmployeesTable table = (EmployeesTable)ctx.getAttribute("table");
+            Employee employee = (Employee) ctx.getAttribute("employee");
+            String originalPhoneNumber = (String) ctx.getAttribute("originalPhoneNumber");
+            table.updatePhoneNumber(employee, originalPhoneNumber);
         }
         catch (Exception e){
             LOGGER.error("Something went wrong");
