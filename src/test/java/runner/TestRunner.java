@@ -62,7 +62,7 @@ public class TestRunner extends Hooks{
     }
     @Test(groups = {"requiresRestoreEmail", "requiresRestorePhoneNumber"})
     @Description("Verifying that when you modify an existing employee, the database is updated")
-    public void updateEmployeeEmail(ITestContext ctx) throws IOException{
+    public void updateEmployeeEmailandPhone(ITestContext ctx) throws IOException{
         EmployeesTable table = new EmployeesTable(manager);
         ctx.setAttribute("table", table);
         Employee employee = table.getRandomEmployee();
@@ -70,10 +70,16 @@ public class TestRunner extends Hooks{
         ctx.setAttribute("originalEmail", employee.getEmail());
         ctx.setAttribute("originalPhoneNumber", employee.getPhoneNumber());
         String newEmail = Helper.getRandomEmail();
+        String newPhone = Helper.getRandomNumber(1000000, 9999999);
         table.updateEmail(employee, newEmail);
+        table.updatePhoneNumber(employee,newPhone);
         assertThat("The email was not updated correctly",
                 table.getEmployeeById(employee.getId()).getEmail(),
                 equalTo(newEmail)
+        );
+        assertThat("The phone number was not updated correctly",
+                table.getEmployeeById(employee.getId()).getPhoneNumber(),
+                equalTo(newPhone)
         );
     }
     @Test(groups = "requiresRestoreEntry")

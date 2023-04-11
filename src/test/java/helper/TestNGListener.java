@@ -7,18 +7,17 @@ public class TestNGListener implements ITestListener, ISuiteListener, IInvokedMe
 
     @Override
     public void onTestStart(ITestResult iTestResult) {
-        LOGGER.info("\n");
         LOGGER.info("- - - - - - - > START TEST CASE: " + iTestResult.getName());
     }
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
         LOGGER.info("Test successfully executed.");
-        LOGGER.info("- - - - - - - > TEST CASE END \n");
+        LOGGER.info("- - - - - - - > TEST CASE END");
     }
     @Override
     public void onTestFailure(ITestResult iTestResult){
         LOGGER.error("Test Failed with message: " + iTestResult.getThrowable().getMessage());
-        LOGGER.info("- - - - - - - > TEST CASE END \n");
+        LOGGER.info("- - - - - - - > TEST CASE END");
     }
     @Override
     public void onFinish(ITestContext iTestContext) {

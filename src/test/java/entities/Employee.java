@@ -7,12 +7,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import tables.EmployeesTable;
 
+
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Properties;
 
 @Entity(name="employee")
 @Table(name="employee")
@@ -117,17 +119,42 @@ public class Employee extends BaseEntity{
                 "\tInstitution ID: "+idInstitution);
     }
     public static Employee generateRandomEmployee() throws IOException, ParseException {
+        Properties employeeBounds = new Properties();
+        employeeBounds.load(new FileInputStream("src/test/resources/employeeTestBounds.properties"));
         Employee anEmployee = new Employee();
-        anEmployee.setId(Integer.parseInt(Helper.getRandomNumber(100, 200)));
+        anEmployee.setId(Integer.parseInt(
+                Helper.getRandomNumber(
+                        Integer.parseInt(employeeBounds.get("ID_LOW").toString()),
+                        Integer.parseInt(employeeBounds.get("ID_UP").toString())
+                )
+        ));
         anEmployee.setFirstName(Helper.getRandomName());
         anEmployee.setLastName(Helper.getRandomName());
         anEmployee.setEmail(Helper.getRandomEmail());
-        anEmployee.setPhoneNumber(Helper.getRandomNumber(1000000,9999999 ));
+        anEmployee.setPhoneNumber(Helper.getRandomNumber(
+                Integer.parseInt(employeeBounds.get("PHONE_NUMBER_LOW").toString()),
+                Integer.parseInt(employeeBounds.get("PHONE_NUMBER_UP").toString())
+        ));
         anEmployee.setBirthDate(new SimpleDateFormat( "yyyy-MM-dd" ).parse( Helper.getRandomDate()));
-        anEmployee.setSalary(Integer.parseInt(Helper.getRandomNumber(1000000, 10000000)));
+        anEmployee.setSalary(Integer.parseInt(
+                Helper.getRandomNumber(
+                        Integer.parseInt(employeeBounds.get("SALARY_LOW").toString()),
+                        Integer.parseInt(employeeBounds.get("SALARY_UP").toString())
+                )
+        ));
         anEmployee.setAddress(Helper.getRandomAddress());
-        anEmployee.setIdCompany(Integer.parseInt(Helper.getRandomNumber(1, 5)));
-        anEmployee.setIdInstitution(Integer.parseInt(Helper.getRandomNumber(1, 3)));
+        anEmployee.setIdCompany(Integer.parseInt(
+                Helper.getRandomNumber(
+                        Integer.parseInt(employeeBounds.get("COMPANY_ID_LOW").toString()),
+                        Integer.parseInt(employeeBounds.get("COMPANY_ID_UP").toString())
+                )
+        ));
+        anEmployee.setIdInstitution(Integer.parseInt(
+                Helper.getRandomNumber(
+                        Integer.parseInt(employeeBounds.get("INSTITUTION_ID_LOW").toString()),
+                        Integer.parseInt(employeeBounds.get("INSTITUTION_ID_UP").toString())
+                )
+        ));
         anEmployee.printEmployeeInfo();
         return anEmployee;
     }

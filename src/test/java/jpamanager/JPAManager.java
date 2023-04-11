@@ -30,7 +30,7 @@ public class JPAManager {
         credentials.put("jakarta.persistence.jdbc.password", hibernateSettings.get("PASSWORD").toString());
         return credentials;
     }
-    public List<?> getAllEntities(String table){ //No me gustó el uso de genéricos aquí
+    public List<?> getAllEntities(String table){
         try {
             return manager.createQuery("FROM " + table).getResultList();
         }
@@ -39,7 +39,7 @@ public class JPAManager {
             return null;
         }
     }
-    public List<?> getEntitiesByParam(String table, String param, String value){//No me gustó el uso de genéricos aquí
+    public List<?> getEntitiesByParam(String table, String param, String value){
         try {
             return manager.createQuery("FROM " + table + " WHERE " + param + "= :value")
                     .setParameter("value", value)
